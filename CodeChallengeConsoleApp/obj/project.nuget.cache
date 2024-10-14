@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "NW5N1HoZuLY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\emili\\source\\repos\\Code Challenge\\CodeChallengeConsoleApp\\CodeChallengeConsoleApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\emili\\.nuget\\packages\\microsoft.dotnet.ilcompiler\\8.0.10\\microsoft.dotnet.ilcompiler.8.0.10.nupkg.sha512",
+    "C:\\Users\\emili\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.10\\microsoft.net.illink.tasks.8.0.10.nupkg.sha512",
+    "C:\\Users\\emili\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\8.0.10\\runtime.win-x64.microsoft.dotnet.ilcompiler.8.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}

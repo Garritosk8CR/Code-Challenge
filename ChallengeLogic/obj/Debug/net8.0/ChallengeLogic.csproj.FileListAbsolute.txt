@@ -1,0 +1,11 @@
+C:\Users\emili\source\repos\Code Challenge\ChallengeLogic\bin\Debug\net8.0\ChallengeLogic.deps.json
+C:\Users\emili\source\repos\Code Challenge\ChallengeLogic\bin\Debug\net8.0\ChallengeLogic.dll
+C:\Users\emili\source\repos\Code Challenge\ChallengeLogic\bin\Debug\net8.0\ChallengeLogic.pdb
+C:\Users\emili\source\repos\Code Challenge\ChallengeLogic\obj\Debug\net8.0\ChallengeLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\emili\source\repos\Code Challenge\ChallengeLogic\obj\Debug\net8.0\ChallengeLogic.AssemblyInfoInputs.cache
+C:\Users\emili\source\repos\Code Challenge\ChallengeLogic\obj\Debug\net8.0\ChallengeLogic.AssemblyInfo.cs
+C:\Users\emili\source\repos\Code Challenge\ChallengeLogic\obj\Debug\net8.0\ChallengeLogic.csproj.CoreCompileInputs.cache
+C:\Users\emili\source\repos\Code Challenge\ChallengeLogic\obj\Debug\net8.0\ChallengeLogic.dll
+C:\Users\emili\source\repos\Code Challenge\ChallengeLogic\obj\Debug\net8.0\refint\ChallengeLogic.dll
+C:\Users\emili\source\repos\Code Challenge\ChallengeLogic\obj\Debug\net8.0\ChallengeLogic.pdb
+C:\Users\emili\source\repos\Code Challenge\ChallengeLogic\obj\Debug\net8.0\ref\ChallengeLogic.dll

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ChallengeLogic/1.0.0": {
+        "runtime": {
+          "ChallengeLogic.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ChallengeLogic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
