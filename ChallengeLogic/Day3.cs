@@ -8,16 +8,11 @@ namespace ChallengeLogic
 {
     public class Day3
     {
-        public Day3()
-        {
-        }
-
-        public (int sum, int missingParts) Part1(char[,] grid)
+        public int Part1(char[,] grid)
         {
             int rows = grid.GetLength(0);
             int cols = grid.GetLength(1);
             int sum = 0;
-            int missingParts = 0;
 
             for (int i = 0; i < rows; i++)
             {
@@ -33,22 +28,25 @@ namespace ChallengeLogic
                             k++;
                         }
 
-                        if (IsAdjacentToSymbol(grid, i, j) || IsAdjacentToSymbol(grid, i, k - 1))
+                        bool isAdjacent = IsAdjacentToSymbol(grid, i, j) || IsAdjacentToSymbol(grid, i, k - 1);
+
+                        Console.WriteLine($"Found number {number} at ({i}, {j}) - Adjacent to symbol: {isAdjacent}");
+                        if (isAdjacent)
                         {
                             sum += number;
+                            Console.WriteLine($"Adding {number} to sum. New sum: {sum}");
                         }
                         else
                         {
-                            missingParts++;
+                            
                         }
 
                         j = k - 1; // Skip the rest of the digits in the current number
                     }
                 }
             }
-            return (sum, missingParts);
+            return sum;
         }
-
         private bool IsAdjacentToSymbol(char[,] grid, int row, int col)
         {
             int[] dRow = { -1, -1, -1, 0, 0, 1, 1, 1 };
@@ -60,7 +58,8 @@ namespace ChallengeLogic
                 int newCol = col + dCol[k];
                 if (newRow >= 0 && newRow < grid.GetLength(0) && newCol >= 0 && newCol < grid.GetLength(1))
                 {
-                    if (grid[newRow, newCol] == '*' || grid[newRow, newCol] == '#' || grid[newRow, newCol] == '+' || grid[newRow, newCol] == '$')
+                    char adjacentChar = grid[newRow, newCol];
+                    if (!char.IsDigit(adjacentChar) && adjacentChar != '.')
                     {
                         return true;
                     }
@@ -72,16 +71,21 @@ namespace ChallengeLogic
         public char[,] ParseGrid(string[] inputLines)
         {
             int rows = inputLines.Length;
-            int cols = inputLines[0].Length;
-            char[,] grid = new char[rows, cols];
+            int maxCols = inputLines.Max(line => line.Length);
+            char[,] grid = new char[rows, maxCols];
 
             for (int i = 0; i < rows; i++)
             {
-                for (int j = 0; j < cols; j++)
+                string line = inputLines[i];
+                for (int j = 0; j < maxCols; j++)
                 {
-                    if (j < inputLines[i].Length)
+                    if (j < line.Length)
                     {
-                        grid[i, j] = inputLines[i][j];
+                        grid[i, j] = line[j];
+                    }
+                    else
+                    {
+                        grid[i, j] = ' '; // pad with space if line is shorter
                     }
                 }
             }
