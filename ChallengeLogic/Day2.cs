@@ -12,7 +12,7 @@ namespace ChallengeLogic
         {
         }
 
-        public int part1Final(string lines)
+        public int Part1Final(string lines)
         {
             var runninTotal = 0;
             const int maxRed = 12;
@@ -72,6 +72,53 @@ namespace ChallengeLogic
                 }
             }
             return runninTotal;
-        }    
+        }
+
+
+        public int Part2Final(string lines)
+        {
+            var runninTotal = 0;
+            
+
+            foreach (var line in lines.Split('\n'))
+            {
+                var gameInfo = line.Split(":");
+                var gameId = int.Parse(gameInfo[0].Split(' ')[1]);
+                var rounds = gameInfo[1].Split(';', StringSplitOptions.TrimEntries);
+                var maxRed = 0;
+                var maxGreen = 0;
+                var maxBlue = 0;
+
+                foreach (var round in rounds)
+                {
+                    var colorInfos = round.Split(',', StringSplitOptions.TrimEntries);
+                    foreach (var color in colorInfos)
+                    {
+                        var colorInfo = color.Split(' ');
+                        var colorCount = int.Parse(colorInfo[0]);
+                        var colorName = colorInfo[1];
+
+                        switch (colorName)
+                        {
+                            case "red":
+                                maxRed = Math.Max(colorCount, maxRed);
+                                break;
+                            case "green":
+                               maxGreen = Math.Max(colorCount, maxGreen);
+                                break;
+                            case "blue":
+                                maxBlue = Math.Max(colorCount, maxBlue);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+
+                var result = maxRed * maxGreen * maxBlue;
+                runninTotal += result;
+            }
+            return runninTotal;
+        }
     }
 }
