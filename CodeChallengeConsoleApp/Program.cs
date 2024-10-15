@@ -77,7 +77,8 @@ internal class Program
         var day3 = new Day3();
         char[,] grid = day3.ParseGrid(inputLines);
         int sum = day3.Part1(grid);
-        Console.WriteLine("Part 1 Sum of Part Numbers: " + sum);      
+        int part2Result = day3.Part2(inputLines);
+        Console.WriteLine("Part 2: " + part2Result);      
         Console.ReadKey();
     }
 }
