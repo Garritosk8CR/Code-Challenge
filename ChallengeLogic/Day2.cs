@@ -12,62 +12,66 @@ namespace ChallengeLogic
         {
         }
 
-        public int Part1(string[] inputLines)
+        public int part1Final(string lines)
         {
-            var redCubes = new List<int>();
-            var greenCubes = new List<int>();
-            var blueCubes = new List<int>();
+            var runninTotal = 0;
+            const int maxRed = 12;
+            const int maxGreen = 13;
+            const int maxBlue = 14;
 
-            foreach (var line in inputLines)
+            foreach (var line in lines.Split('\n'))
             {
-                var parts = line.Split(' ');
-                int cubes = int.Parse(parts[1]);
-                if (parts[0] == "red")
+                var gameInfo = line.Split(":");
+                var gameId = int.Parse(gameInfo[0].Split(' ')[1]);
+                var rounds = gameInfo[1].Split(';', StringSplitOptions.TrimEntries);
+                bool isGameValid = true;
+
+                foreach (var round in rounds)
                 {
-                    redCubes.Add(cubes);
+                    var colorInfos = round.Split(',', StringSplitOptions.TrimEntries);
+                    foreach(var color in colorInfos)
+                    {
+                        var colorInfo = color.Split(' ');
+                        var colorCount = int.Parse(colorInfo[0]);
+                        var colorName = colorInfo[1];
+
+                        switch (colorName)
+                        {
+                            case "red":
+                                if (colorCount > maxRed)
+                                {
+                                    isGameValid = false;                        
+                                }
+                                break;
+                            case "green":
+                                if (colorCount > maxGreen)
+                                {
+                                    isGameValid = false;
+                                }
+                                break;
+                            case "blue":
+                                if (colorCount > maxBlue)
+                                {
+                                    isGameValid = false;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+
+                    if(!isGameValid)
+                    {
+                        break;
+                    }
                 }
-                else if (parts[0] == "green")
+
+                if (isGameValid)
                 {
-                    greenCubes.Add(cubes);
-                }
-                else if (parts[0] == "blue")
-                {
-                    blueCubes.Add(cubes);
+                    runninTotal += gameId;
                 }
             }
-
-            return redCubes.OrderBy(x => x).Take(3).Aggregate((a, b) => a * b) *
-                   greenCubes.OrderBy(x => x).Take(3).Aggregate((a, b) => a * b) *
-                   blueCubes.OrderBy(x => x).Take(3).Aggregate((a, b) => a * b);
-        }
-
-        public int Part2(string[] inputLines)
-        {
-            var redCubes = new List<int>();
-            var greenCubes = new List<int>();
-            var blueCubes = new List<int>();
-
-            foreach (var line in inputLines)
-            {
-                var parts = line.Split(' ');
-                int cubes = int.Parse(parts[1]);
-                if (parts[0] == "red")
-                {
-                    redCubes.Add(cubes);
-                }
-                else if (parts[0] == "green")
-                {
-                    greenCubes.Add(cubes);
-                }
-                else if (parts[0] == "blue")
-                {
-                    blueCubes.Add(cubes);
-                }
-            }
-
-            return redCubes.OrderBy(x => x).Take(3).Sum() *
-                   greenCubes.OrderBy(x => x).Take(3).Sum() *
-                   blueCubes.OrderBy(x => x).Take(3).Sum();
-        }
+            return runninTotal;
+        }    
     }
 }

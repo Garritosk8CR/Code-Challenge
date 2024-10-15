@@ -64,7 +64,7 @@ internal class Program
         Console.WriteLine("Running Day 2...");
         string inputLines = File.ReadAllText("input2.txt");
         var day2 = new Day2();
-        Console.WriteLine("Part 1 sum: " + day2.Part1(inputLines));
+        Console.WriteLine("Part 1 sum: " + day2.Part1Final(inputLines));
         //Console.WriteLine("Sum: " + day2.Part2(inputLines));
         Console.ReadKey();
     }
