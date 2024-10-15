@@ -91,5 +91,49 @@ namespace ChallengeLogic
             }
             return grid;
         }
+
+        public int Part2(string[] input)
+        {
+            var width = input[0].Length;
+            var height = input.Length;
+            var map = new char[width, height];
+
+            for (int x = 0; x < width; x++) 
+            { 
+                for (int y = 0; y < height; y++)
+                {
+                    map[x, y] = input[x][y];
+                }    
+            }
+
+            var runningtotal = 0;
+            var currentNumber = 0;
+
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    var character = map[x, y];
+                    if (char.IsDigit(character))
+                    {
+                        var value = character - '0';
+                        currentNumber = currentNumber * 10 + value;
+                        foreach(var direction in Directions.WithDiagonals)
+                        {
+                            var neighborX = x + direction.X;
+                            var neighborY = y + direction.Y;
+                            if (neighborX < 0 || neighborY >= width || neighborY < 0 || neighborY >= height)
+                            {
+                                continue;
+                            }
+                            var neighborCharacter = map[neighborX, neighborY];
+                        }
+                    }
+                }
+
+            }
+
+            return runningtotal;
+        }
     }
 }
