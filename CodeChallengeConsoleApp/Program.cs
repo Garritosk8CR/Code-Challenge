@@ -54,7 +54,7 @@ internal class Program
         var day1 = new Day1();
         int totalCalibrationValue = day1.Part1(inputLines);
         Console.WriteLine("Part 1 Sum of Calibration Values: " + totalCalibrationValue);
-        Console.WriteLine("Part 2 Calibration Product: " + day1.Part2(inputLines, totalCalibrationValue));
+        Console.WriteLine("Part 2 Calibration Product: " + day1.Part2(inputLines));
         Console.ReadKey();
     }
 
@@ -62,10 +62,10 @@ internal class Program
     {
         Console.Clear();
         Console.WriteLine("Running Day 2...");
-        string[] inputLines = File.ReadAllLines("input2.txt");
+        string inputLines = File.ReadAllText("input2.txt");
         var day2 = new Day2();
-        Console.WriteLine("Part 1 Total Scoops: " + day2.Part1(inputLines));
-        Console.WriteLine("Part 2 Max Scoops: " + day2.Part2(inputLines));
+        Console.WriteLine("Part 1 sum: " + day2.Part1(inputLines));
+        //Console.WriteLine("Sum: " + day2.Part2(inputLines));
         Console.ReadKey();
     }
 
@@ -76,9 +76,8 @@ internal class Program
         string[] inputLines = File.ReadAllLines("input3.txt"); // Make sure this file name is correct
         var day3 = new Day3();
         char[,] grid = day3.ParseGrid(inputLines);
-        (int sum, int missingParts) = day3.Part1(grid);
-        Console.WriteLine("Part 1 Sum of Part Numbers: " + sum);
-        Console.WriteLine("Part 1 Missing Parts: " + missingParts);
+        int sum = day3.Part1(grid);
+        Console.WriteLine("Part 1 Sum of Part Numbers: " + sum);      
         Console.ReadKey();
     }
 }
